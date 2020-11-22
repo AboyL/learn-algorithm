@@ -6,7 +6,9 @@
   "author": "lijunfeng <junfeng.li@hand-china.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/lodash": "^4.14.161",
     "jest": "^26.0.1",
+    "lodash": "^4.17.20",
     "typescript": "^3.9.5"
   },
   "devDependencies": {
