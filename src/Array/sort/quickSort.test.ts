@@ -1,7 +1,6 @@
 // 快速排序
 
 import { cloneDeep } from 'lodash'
-
 function swap<T = number>(arr: T[], a: number, b: number) {
   const t: T = arr[a]
   arr[a] = arr[b]
