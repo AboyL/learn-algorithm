@@ -15,7 +15,7 @@ class ListNode {
 
 // 虚拟头结点 来做一个判断 很简单就完事了
 // 不使用虚拟头结点就需要做很多的判断 很麻烦
-function removeElements(head: ListNode | null, val: number): ListNode | null {
+function removeElements1(head: ListNode | null, val: number): ListNode | null {
   const dummyHead: ListNode = {
     val: -1,
     next: head
@@ -32,6 +32,32 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
   return dummyHead.next
 };
 
+// 通过递归来实现
+function removeElements(head: ListNode | null, val: number): ListNode | null {
+  if (!head) {
+    return head
+  }
+
+  head.next = removeElements(head.next, val)
+
+  return head.val === val ? head.next : head
+};
+
+
+// 一个判断函数
+const judge = (head: any) => {
+  return Math.random() * 10 > head.val ? true : false
+}
+
+function dealWithLinkedList(head: ListNode | null, val: number): ListNode | null {
+  if (!head) {
+    return head
+  }
+
+  head.next = dealWithLinkedList(head.next, val)
+
+  return judge(head) ? head.next : head
+};
 
 test('removeElements', () => {
   expect(removeElements({
