@@ -117,6 +117,9 @@ export class MyCircularQueue {
 test('MyCircularQueue2', () => {
   const circularQueue = new MyCircularQueue(2); // 设置长度为 2
   circularQueue.enQueue(1)
+  expect(
+    circularQueue.Front()
+  ).toBe(1)
   circularQueue.enQueue(2)
   circularQueue.deQueue()
   circularQueue.enQueue(3)
