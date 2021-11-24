@@ -15,9 +15,7 @@
 // 或者在待命状态。
 
 
-// 先进行一次分类，然后取出一个最长的，再取出一个第二长的，再进行一次比较，取出一个最长，再取出一个第二长的
-// 依次类推下去，直到最后只有一个最长
-// 题目理解错了qwq 这个n不是待命时间qwq，而是最多的间隔时间啊这
+// 尽量选择最多的且符合要求的
 function leastInterval(tasks: string[], n: number): number {
   if (n == 0 || tasks.length == 0) {
     return tasks.length
