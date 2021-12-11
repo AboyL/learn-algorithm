@@ -1,3 +1,5 @@
+export default {}
+
 /*
  * @lc app=leetcode.cn id=53 lang=typescript
  *
@@ -16,11 +18,7 @@ function maxSubArray(nums: number[]): number {
   let current = 0
   let max = nums[0]
   for (let i of nums) {
-    if (current >= 0) {
-      current = i + current
-    } else {
-      current = i
-    }
+    current = Math.max(current + i, i)
     max = Math.max(max, current)
   }
 
