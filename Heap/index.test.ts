@@ -7,13 +7,13 @@ test('max heap', () => {
     maxHeap.insert(value)
   })
 
-  expect(maxHeap.getData()).toEqual([undefined, 3, 1, 2])
+  expect(maxHeap.getData()).toEqual([3, 1, 2])
 
   const arr2 = [1, 2, 3]
   const maxHeap2 = new MaxHeap()
   maxHeap2.heapify(arr2)
 
-  expect(maxHeap2.getData()).toEqual([undefined, 3, 2, 1])
+  expect(maxHeap2.getData()).toEqual([3, 2, 1])
 
   // 进行出队操作
   let arr3 = [];
