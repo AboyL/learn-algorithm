@@ -30,6 +30,7 @@ class MaxHeap {
     this.data = []
     this.count = arr.length
     if (arr.length <= 1) {
+      this.data = arr
       return arr
     }
     arr.forEach((v, i) => {

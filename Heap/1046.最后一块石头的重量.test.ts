@@ -1,4 +1,12 @@
-export default {}
+/*
+ * @lc app=leetcode.cn id=1046 lang=typescript
+ *
+ * [1046] 最后一块石头的重量
+ */
+
+// @lc code=start
+
+// 做法就是先搞一个堆，然后从里面不断的pop数据处理直到堆空了或者只有一个数据
 
 
 // 通过堆来解决
@@ -9,10 +17,10 @@ function swap<T = number>(arr: T[], a: number, b: number) {
 }
 
 const compare = (a: number, b: number) => {
-  return a > b
+  return a < b
 }
 
-class MinHeap {
+class MaxHeap {
   private data: number[] = []
   private count: number = 0;
 
@@ -97,21 +105,22 @@ class MinHeap {
   }
 }
 
-
-function getLeastNumbers(arr: number[], k: number): number[] {
-  const heap = new MinHeap()
-  heap.heapify(arr)
-  const result: number[] = []
-  for (let i = 0; i < k; i++) {
-    result.push(heap.extractTarget())
+function lastStoneWeight(stones: number[]): number {
+  const heap = new MaxHeap()
+  heap.heapify(stones)
+  while (heap.size() > 1) {
+    const first = heap.extractTarget()
+    const second = heap.extractTarget()
+    const next = first - second
+    if (next !== 0) {
+      heap.insert(next)
+    }
   }
-  return result
+  return heap.isEmpty() ? 0 : heap.extractTarget()
 };
 
-test('mix k', () => {
-  // expect(getLeastNumbers([0, 0, 1, 2, 4, 2, 2, 3, 1, 4], 8))
-  //   .toEqual([0, 0, 1, 1, 2, 2, 2, 3])
-
-  expect(getLeastNumbers([0, 0, 1, 3, 4, 5, 0, 7, 6, 7], 9))
-    .toEqual([0, 0, 0, 1, 3, 4, 5, 6, 7])
+test('lastStoneWeight', () => {
+  expect(lastStoneWeight([1])).toEqual(1)
 })
+// @lc code=end
+
