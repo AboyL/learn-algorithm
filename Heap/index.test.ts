@@ -18,7 +18,7 @@ test('max heap', () => {
   // 进行出队操作
   let arr3 = [];
   while (!maxHeap.isEmpty()) {
-    arr3.push(maxHeap.extractMax())
+    arr3.push(maxHeap.extractTarget())
   }
   expect(arr3).toEqual([3, 2, 1])
 

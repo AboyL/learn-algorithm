@@ -1,3 +1,5 @@
+export default {}
+
 
 // 通过堆来解决
 function swap<T = number>(arr: T[], a: number, b: number) {
@@ -7,10 +9,10 @@ function swap<T = number>(arr: T[], a: number, b: number) {
 }
 
 const compare = (a: number, b: number) => {
-  return a < b
+  return a > b
 }
 
-class MaxHeap {
+class MinHeap {
   private data: number[] = []
   private count: number = 0;
 
@@ -95,5 +97,20 @@ class MaxHeap {
 }
 
 
+function getLeastNumbers(arr: number[], k: number): number[] {
+  const heap = new MinHeap()
+  heap.heapify(arr)
+  const result: number[] = []
+  for (let i = 0; i < k; i++) {
+    result.push(heap.extractTarget())
+  }
+  return result
+};
 
-export default MaxHeap
+test('mix k', () => {
+  // expect(getLeastNumbers([0, 0, 1, 2, 4, 2, 2, 3, 1, 4], 8))
+  //   .toEqual([0, 0, 1, 1, 2, 2, 2, 3])
+
+  expect(getLeastNumbers([0, 0, 1, 3, 4, 5, 0, 7, 6, 7], 9))
+    .toEqual([0, 0, 0, 1, 3, 4, 5, 6, 7])
+})
